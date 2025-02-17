@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Image Slider with Floating Hearts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 80%;
+            max-width: 700px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Floating Hearts */
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .hearts div {
+            position: absolute;
+            font-size: 18px;
+            color: red;
+            opacity: 0.7;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            from { transform: translateY(100vh) scale(0.8); opacity: 0.7; }
+            to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Randomized heart positions */
+        .hearts div:nth-child(1) { left: 10%; animation-duration: 5s; }
+        .hearts div:nth-child(2) { left: 30%; animation-duration: 6s; }
+        .hearts div:nth-child(3) { left: 50%; animation-duration: 7s; }
+        .hearts div:nth-child(4) { left: 70%; animation-duration: 5.5s; }
+        .hearts div:nth-child(5) { left: 90%; animation-duration: 6.5s; }
+
+        /* Next Page Button */
+        .next-page-btn {
+            position: absolute;
+            bottom: 5%;
+            padding: 12px 24px;
+            font-size: 18px;
+            color: white;
+            background: #ff4d4d;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            text-align: center;
+            width: 200px;
+        }
+
+        .next-page-btn:hover {
+            background: #cc0000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="hearts">
+        <div>Shreya❤️Dhruba</div><div>❤️</div><div>Dhruba❤️Shreya</div><div>Shreya❤️Dhruba</div><div>❤️</div> <div>Dhruba❤️Shreya</div>
+    </div>
+    <div class="slider-container">
+        <img class="slide active" src="files/1.png" alt="Slide 1">
+        <img class="slide" src="files/2.png" alt="Slide 2">
+        <img class="slide" src="files/3.png" alt="Slide 3">
+        <img class="slide" src="files/4.png" alt="Slide 4">
+        <img class="slide" src="files/5.png" alt="Slide 5">
+        <img class="slide" src="files/6.png" alt="Slide 6">
+        <img class="slide" src="files/7.png" alt="Slide 7">
+        <img class="slide" src="files/8.png" alt="Slide 8">
+        <img class="slide" src="files/9.png" alt="Slide 9">
+        <img class="slide" src="files/10.png" alt="Slide 10">
+        <img class="slide" src="files/11.png" alt="Slide 11">
+
+        <button class="nav-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="nav-btn next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- Next Page Button -->
+    <a href="page5.html" class="next-page-btn">Go to Next Page</a>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function changeSlide(direction) {
+            slides[slideIndex].classList.remove("active");
+            slideIndex = (slideIndex + direction + slides.length) % slides.length;
+            slides[slideIndex].classList.add("active");
+        }
+    </script>
+
+</body>
+</html>

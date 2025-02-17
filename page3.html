@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <link rel="stylesheet" href="styles/style3.css">
+    <!-- Fireworks.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Question Box -->
+        <div id="question-box">
+            <h2>Dhruba ki bole daak te bhalobase Shreya ke?</h2>
+            <input type="text" id="answer-input" placeholder="Type your answer...">
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
+
+        <!-- Video Box (Initially Hidden) -->
+    <div id="video-box" class="hidden">
+        <!-- Embed YouTube Video -->
+        <!-- <iframe id="video" width="560" height="315"
+            src="https://www.youtube.com/embed/nJ4DuKf6m80?autoplay=1&modestbranding=1&rel=0&showinfo=0"
+            allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe> -->
+        <video id="custom-video" width="560" height="315" autoplay muted loop>
+            <source src="files/VID20250215200219.mp4" type="video/mp4">
+        </video>
+
+        <audio id="audio" class="hidden">
+            <source src="files/metro_audio.m4a" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+        
+    <!-- <div class="flyer-container">
+        <img src="flyer1.jpg" alt="Flyer 1" class="flyer">
+        <img src="flyer2.jpg" alt="Flyer 2" class="flyer">
+    </div> -->
+</div>
+
+     <!-- Fireworks Canvas -->
+        <canvas id="fireworks"></canvas>
+    </div>
+
+    <script src="scripts/script3.js"></script>
+</body>
+</html>

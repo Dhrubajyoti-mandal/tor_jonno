@@ -1,0 +1,66 @@
+/* General styles */
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: backgroundAnimation 5s infinite;
+    flex-direction: column;
+    text-align: center;
+}
+
+  
+  .container {
+    text-align: center;
+  }
+  
+  h1.question {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  #letsGoButton {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background: #ff6f61;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.4);
+  }
+  
+  #letsGoButton:hover {
+    background: #ff3b2f;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 59, 47, 0.6);
+  }
+  
+  /* Button click animation */
+  @keyframes buttonClick {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes backgroundAnimation {
+    0% {
+        background-color: #ff7f50;
+    }
+    50% {
+        background-color: #4caf50;
+    }
+    100% {
+        background-color: #ff7f50;
+    }
+}

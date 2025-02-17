@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Question Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f5f5f5;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .gif-container img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            max-height: 250px;
+            object-fit: contain; /* Ensures the whole GIF is visible within the container */
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .yes-btn, .no-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes-btn {
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        .no-btn {
+            background: #FF4C4C;
+            color: white;
+            border-radius: 5px;
+        }
+        .note {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gif-container">
+            <img id="gif" src="gif1.gif" alt="GIF Placeholder">
+        </div>
+        <div class="question" id="question">Are you ready to go?</div>
+        <div class="buttons">
+            <button class="yes-btn" id="yes" onclick="nextQuestion()">Yes</button>
+            <button class="no-btn" id="no" onclick="handleNo()">No</button>
+        </div>
+        <div class="note" id="note"></div>
+    </div>
+    
+    <script>
+        let questionIndex = 0;
+        const questions = [
+            {text: "Tumi ki amake bhalobaso go?", gif: "files/Dance Dancing Sticker by milkmochabear.gif", note: "PLease hyan bol" },
+            { text: "maaf korechis to?", gif: "files/Happy White Bear Sticker by milkmochabear.gif", note: "oiii, please, bhalobasna, maaf kor na" },
+            { text: "Tumi ki amake biye korbe?", gif: "files/Happy Love You Sticker by milkmochabear.gif", note: "na bolis na kintu, aunty ke bole boka khawabo" },
+            { text: "Chol aro egiye niye jai amader tok jhal nonta prem", gif: "files/Cutie Looking Good GIF.gif", note: "jabi nah? chol na bhallagbe" }
+        ];
+
+        function nextQuestion() {
+            if (questionIndex < questions.length - 1) {
+                // Not the last question, proceed to the next question
+                questionIndex++;
+                document.getElementById("question").innerText = questions[questionIndex].text;
+                document.getElementById("gif").src = questions[questionIndex].gif;
+                document.getElementById("gif").style.display = "block";
+                document.getElementById("note").style.display = "none";
+                document.getElementById("no").style.display = "inline-block";
+                document.getElementById("yes").style.fontSize = "18px";
+            } else {
+                // Last question, redirect to a new page
+                window.location.href = "page3.html";  // Replace with your desired URL
+            }
+        }
+
+
+        function handleNo() {
+            document.getElementById("note").innerText = questions[questionIndex].note;
+            document.getElementById("note").style.display = "block";
+            document.getElementById("no").style.display = "none";
+            let yesBtn = document.getElementById("yes");
+            let newSize = parseInt(window.getComputedStyle(yesBtn).fontSize) + 10;
+            yesBtn.style.fontSize = newSize + "px";
+            if (newSize > 100) {
+                yesBtn.style.width = "100vw";
+                yesBtn.style.height = "100vh";
+                document.getElementById("gif").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
