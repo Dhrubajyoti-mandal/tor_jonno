@@ -18,9 +18,12 @@ body {
   
   h1.question {
     font-size: 2.5rem;
-    color: #333;
+    color: #f0ffff;
     margin-bottom: 20px;
   }
+ h2.question{
+     color: #fbfff0;
+ }
   
   #letsGoButton {
     padding: 15px 30px;
